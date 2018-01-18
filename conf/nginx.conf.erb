@@ -26,6 +26,11 @@ http {
       rewrite \/(.*)\/$ /$1 permanent;
     }
 
+    location /nginx-health {
+            return 200 'PONG';
+            access_log off;
+        }
+
     try_files $uri $uri.html $uri/ =404;
   }
 }
