@@ -19,14 +19,6 @@ function indent() {
   esac
 }
  echo "-----> Version: `ruby -v`"
-echo "-----> Installing Ruby 2.3.3"
-  git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-  git clone https://github.com/garnieretienne/rvm-download.git ~/.rbenv/plugins/rvm-download
-  export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-  rbenv download 2.3.3
-  rbenv rehash
-  rbenv local 2.3.3
-  rbenv global 2.3.3
 
 # build nginx config unless overridden by user
 if [ ! -f $BUILD_DIR/conf/nginx.conf ]; then
