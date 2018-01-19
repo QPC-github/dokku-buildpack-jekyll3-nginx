@@ -6,8 +6,7 @@ set -o pipefail
 
 # parse and derive params
 BUILD_DIR=$1
-echo "BUILD DIR" 
-echo $BUILD_DIR
+echo "-----> BUILD DIR: $BUILD_DIR" 
 
 CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
@@ -23,6 +22,7 @@ function indent() {
 }
  echo "-----> Version: `ruby -v`"
 
+mkdir -p $BUILD_DIR/bin/
 # build nginx config unless overridden by user
 if [ ! -f $BUILD_DIR/conf/nginx.conf ]; then
   echo "-----> Using default nginx.conf.erb"
